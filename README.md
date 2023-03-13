@@ -1,4 +1,4 @@
-# sveltekit x tailwindcss
+# sveltekit with tailwindcss
 
 This has been written inline with the tutorial found [here](https://www.youtube.com/watch?v=A93LogPsEv8&ab_channel=simonswiss)
 
