@@ -1,38 +1,61 @@
-# create-svelte
+# sveltekit x tailwindcss
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This has been written inline with the tutorial found [here](https://www.youtube.com/watch?v=A93LogPsEv8&ab_channel=simonswiss)
 
-## Creating a project
+## Creating the project
+---
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+The project skeleton was set up as follows:
+```
+npm svelte@latest tailwindcss-tutorial
+cd ./tailwindcss-tutorial
+npm install
+npm install -D tailwindcss postcss autoprefixer
 ```
 
-## Developing
+## Setup
+---
+Init tailwind config file. include `-p` for postcss config file.
+```
+npx tailwind init -p
+```
+Update the tailwind config file to the `src` folder.
+```
+content: [
+    'src/**/*.{svelte, html, js, ts}
+]
+```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Add `app.css` file to src
+```
+src
+|    - routes
+|    - app.css
+|    - app.html
+```
 
-```bash
+Import the tailwind directives into `app.css`
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+In svelte's base layout, import `app.css`
+```
+<script>
+    import "../app.css";
+</script>
+```
+
+## Styles
+
+Start a local development server
+```
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
+Add classes from [the docs](https://tailwindcss.com/docs)
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+<h1 class="text-3xl font-bold underline text-green-500">
+```
